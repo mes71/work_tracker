@@ -1,6 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+List<Widget> pages = [
+  Container(
+    color: Colors.green,
+  ),
+  Container(
+    color: Colors.red,
+  ),
+  Container(
+    color: Colors.blue,
+  ),
+];
+
 class RootPage extends StatelessWidget {
   const RootPage({super.key});
 
