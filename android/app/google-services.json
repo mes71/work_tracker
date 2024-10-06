@@ -7,12 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:15491907062:android:74f6d928fb6c7bb97bdbd7",
+        "mobilesdk_app_id": "1:15491907062:android:fa763abf427e279a7bdbd7",
         "android_client_info": {
           "package_name": "com.mes71.work_tracker"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "15491907062-9p7jsmk4lvo5n0r3646u1dbjjnh6jeng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDiYZSzJKrAoPu5-Ro99H6oifTUBZ4ciuE"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15491907062-9p7jsmk4lvo5n0r3646u1dbjjnh6jeng.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "15491907062-gdjkq3ggdfqu628v9iuojpgsukmdh22o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mes71.workTracker"
+              }
+            }
+          ]
         }
       }
     }
