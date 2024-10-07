@@ -29,10 +29,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         title: 'Work Tracker',
         routerConfig: AppRoutes.appRoutes,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        themeMode: ThemeMode.system,
+        theme: ThemeData.light(),
+        darkTheme: ThemeData.dark(),
       ),
     );
   }
