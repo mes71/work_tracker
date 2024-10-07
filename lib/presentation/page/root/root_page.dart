@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:work_tracker/domain/cubit/navigation/root_cubit.dart';
+import 'package:work_tracker/domain/cubit/root/root_cubit.dart';
 import 'package:work_tracker/presentation/routes/app_routes.dart';
 
 class RootPage extends StatelessWidget {
