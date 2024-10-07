@@ -30,11 +30,12 @@ class AppRoutes {
     ],
   );
 
-  void Root
   AppRoutes._();
 }
 
 class AppPath {
+  AppPath._();
+
   static const init = '/';
   static const home = '/home';
   static const report = '/report';
