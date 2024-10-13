@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
       child: BlocListener<SplashCubit, bool>(
         listener: (context, state) {
           if (state) {
-            context.goNamed(AppPath.home);
+            context.goNamed(AppPath.auth);
           }
         },
         child: Scaffold(

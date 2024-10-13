@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:work_tracker/presentation/page/auth/auth_page.dart';
 import 'package:work_tracker/presentation/page/home/home_page.dart';
 import 'package:work_tracker/presentation/page/report/report_page.dart';
 import 'package:work_tracker/presentation/page/root/root_page.dart';
@@ -14,6 +15,11 @@ class AppRoutes {
         name: AppPath.init,
         path: AppPath.init,
         builder: (context, state) => const SplashPage(),
+      ),
+      GoRoute(
+        name: AppPath.auth,
+        path: AppPath.auth,
+        builder: (context, state) => const AuthPage(),
       ),
       ShellRoute(
           builder: (BuildContext context, GoRouterState state, Widget child) {
@@ -47,6 +53,7 @@ class AppPath {
 
   static const init = '/';
   static const home = '/home';
+  static const auth = '/auth';
   static const report = '/report';
   static const setting = '/setting';
 }
