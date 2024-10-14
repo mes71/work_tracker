@@ -24,6 +24,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       AuthStarted event, Emitter<AuthState> emit) async {
     emit(const AuthLoading());
     try {
+      await Future.delayed(const Duration(milliseconds: 1500));
       final user = await dataSource.getCurrentUser();
       if (user != null) {
         emit(Authenticated(user: user));

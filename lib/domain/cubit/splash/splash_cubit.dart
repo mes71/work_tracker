@@ -1,7 +1,10 @@
 import 'package:bloc/bloc.dart';
+import 'package:work_tracker/domain/bloc/auth/auth_bloc.dart';
 
 class SplashCubit extends Cubit<bool> {
-  SplashCubit() : super(false);
+  final AuthBloc authBloc;
+
+  SplashCubit(this.authBloc) : super(false);
 
   Future<void> loadSplash() async {
     await Future.delayed(const Duration(seconds: 2))
