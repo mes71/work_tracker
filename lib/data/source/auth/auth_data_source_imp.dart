@@ -1,33 +1,52 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:work_tracker/data/mapper/fire_base_user_to_user_model.dart';
 import 'package:work_tracker/data/model/user/user_model.dart';
+import 'package:work_tracker/data/service/local_storage/local_storage.dart';
 import 'package:work_tracker/data/source/auth/auth_data_source.dart';
 
 class AuthDataSourceImp extends AuthDataSource {
-  final Firebase firebase;
+  final FirebaseAuth firebaseAuth;
+  final LocalStorageImp sh;
 
-  AuthDataSourceImp(this.firebase);
+  AuthDataSourceImp({required this.firebaseAuth, required this.sh});
 
   @override
-  Future<UserModel> getCurrentUser() {
-    // TODO: implement getCurrentUser
-    throw UnimplementedError();
+  Future<UserModel?> getCurrentUser() async => await sh.getUser();
+
+  @override
+  Future<UserModel> signIn(String email, String password) async {
+    try {
+      UserCredential userCredential = await firebaseAuth
+          .signInWithEmailAndPassword(email: email, password: password);
+      UserModel userModel = userCredential.toUserModel;
+      sh.storeUser(userModel);
+      return userModel;
+    } on FirebaseAuthException catch (e) {
+      rethrow;
+    } on Exception catch (e) {
+      rethrow;
+    }
   }
 
   @override
-  Future<UserModel> signIn(String email, String password) {
-    // TODO: implement signIn
-    throw UnimplementedError();
+  Future<void> signOut() async {
+    try {
+      await sh.deleteUser();
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 
   @override
-  Future<void> signOut() {
-    // TODO: implement signOut
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<UserModel> signUp(String email, String password) {
-    // TODO: implement signUp
-    throw UnimplementedError();
+  Future<UserModel> signUp(String email, String password) async {
+    try {
+      UserCredential userCredential = await firebaseAuth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      UserModel userModel = userCredential.toUserModel;
+      sh.storeUser(userModel);
+      return userModel;
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }

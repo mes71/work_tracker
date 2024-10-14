@@ -7,5 +7,5 @@ abstract class AuthDataSource {
 
   Future<void> signOut();
 
-  Future<UserModel> getCurrentUser();
+  Future<UserModel?> getCurrentUser();
 }

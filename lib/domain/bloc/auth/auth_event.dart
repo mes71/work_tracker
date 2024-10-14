@@ -1,9 +1,8 @@
-import 'package:equatable/equatable.dart';
-
 part of 'auth_bloc.dart';
 
 abstract class AuthEvent extends Equatable {
   const AuthEvent();
+
   @override
   List<Object?> get props => [];
 }
@@ -28,6 +27,10 @@ class AuthSignUpEvent extends AuthEvent {
 
   @override
   List<Object> get props => [email, password];
+}
+
+class AuthToggleModeEvent extends AuthEvent {
+  const AuthToggleModeEvent();
 }
 
 class AuthSignOutEvent extends AuthEvent {}

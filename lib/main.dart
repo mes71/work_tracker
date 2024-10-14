@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:work_tracker/data/di/injection.dart';
 import 'package:work_tracker/domain/cubit/root/root_cubit.dart';
 import 'package:work_tracker/presentation/routes/app_routes.dart';
 
@@ -11,6 +12,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await setupDi();
 
   runApp(const MyApp());
 }

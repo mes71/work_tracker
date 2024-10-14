@@ -19,7 +19,7 @@ class AppRoutes {
       GoRoute(
         name: AppPath.auth,
         path: AppPath.auth,
-        builder: (context, state) => const AuthPage(),
+        builder: (context, state) => AuthPage(),
       ),
       ShellRoute(
           builder: (BuildContext context, GoRouterState state, Widget child) {
