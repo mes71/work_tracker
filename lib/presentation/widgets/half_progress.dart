@@ -7,23 +7,31 @@ class HalfCircleProgressBar extends StatelessWidget {
   final double thickness;
   final Color backgroundColor;
   final Color progressColor;
+  final int width;
+  final int height;
 
   const HalfCircleProgressBar({
     super.key,
     required this.progress,
-    this.thickness = 10.0,
+    this.thickness = 15.0,
     this.backgroundColor = Colors.grey,
     this.progressColor = Colors.blue,
+    required this.width,
+    required this.height,
   }) : assert(progress >= 0.0 && progress <= 1.0);
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: _HalfCircleProgressPainter(
-        progress: progress,
-        thickness: thickness,
-        backgroundColor: backgroundColor,
-        progressColor: progressColor,
+    return SizedBox(
+      width: width.toDouble(),
+      height: height.toDouble(),
+      child: CustomPaint(
+        painter: _HalfCircleProgressPainter(
+          progress: progress,
+          thickness: thickness,
+          backgroundColor: backgroundColor,
+          progressColor: progressColor,
+        ),
       ),
     );
   }
@@ -52,6 +60,7 @@ class _HalfCircleProgressPainter extends CustomPainter {
     final backgroundPaint = Paint()
       ..color = backgroundColor
       ..strokeWidth = thickness
+      ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
     canvas.drawArc(
         rect, math.pi, math.pi, false, backgroundPaint); // Half circle

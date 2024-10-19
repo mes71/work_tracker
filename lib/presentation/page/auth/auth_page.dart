@@ -6,7 +6,7 @@ import 'package:work_tracker/data/di/injection.dart';
 import 'package:work_tracker/data/source/auth/auth_data_source_imp.dart';
 import 'package:work_tracker/domain/bloc/auth/auth_bloc.dart';
 import 'package:work_tracker/presentation/routes/app_routes.dart';
-import 'package:work_tracker/presentation/widgets/snak_widget.dart';
+import 'package:work_tracker/presentation/widgets/snack_widget.dart';
 
 class AuthPage extends StatelessWidget {
   AuthPage({super.key});
